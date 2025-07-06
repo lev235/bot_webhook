@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: tg-reputation-bot
+    env: python
+    plan: free               # 750 часов/мес, автосон через 15 мин [oai_citation:0‡render.com](https://render.com/docs/free?utm_source=chatgpt.com)
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: BOT_TOKEN            # заполним в панели – значение скрыто
+        sync: false
+      - key: APP_URL              # https://tg-reputation-bot.onrender.com
+        sync: false
