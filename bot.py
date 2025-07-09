@@ -136,3 +136,9 @@ if __name__ == "__main__":
         webhook_url=f"{PUBLIC_URL}/{TOKEN}",
         drop_pending_updates=False   # важно: Telegram пришлёт накопленные апдейты
     )
+from aiohttp import web
+
+async def ping_handler(request):
+    return web.Response(text="OK")
+
+app.web_app.add_get("/ping", ping_handler)
